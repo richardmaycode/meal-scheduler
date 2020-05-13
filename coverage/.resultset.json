@@ -252,8 +252,8 @@
         "lines": [
           1,
           1,
-          7,
-          7,
+          15,
+          15,
           null,
           null
         ]
@@ -262,8 +262,23 @@
         "lines": [
           1,
           1,
-          7,
-          7,
+          15,
+          15,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/factories/recipes.rb": {
+        "lines": [
+          1,
+          1,
+          9,
+          9,
+          9,
+          9,
+          9,
+          1,
+          1,
           null,
           null
         ]
@@ -340,6 +355,43 @@
           null
         ]
       },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/models/recipe_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          9,
+          1,
+          2,
+          2,
+          null,
+          1,
+          1,
+          1,
+          null,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/app/models/recipe.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/models/user_spec.rb": {
         "lines": [
           1,
@@ -372,6 +424,6 @@
         ]
       }
     },
-    "timestamp": 1589337621
+    "timestamp": 1589339003
   }
 }
