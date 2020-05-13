@@ -7,5 +7,8 @@ FactoryBot.define do
     baby_friendly { false }
     meal
     cuisine
+    factory :baby_friendly_recipe do
+      baby_friendly { true }
+    end
   end
 end

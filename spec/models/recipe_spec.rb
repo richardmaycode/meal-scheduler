@@ -16,4 +16,15 @@ RSpec.describe Recipe, type: :model do
     it { should validate_presence_of(:servings) }
     it { should validate_inclusion_of(:servings).in_range(1..10) }
   end
+  describe 'methods' do
+    context '#baby_friendly_modifier' do
+      it 'should return modifier of 50 if baby_friendly' do
+        recipe = create(:baby_friendly_recipe)
+        expect(recipe.baby_friendly_modifier).to eq 50
+      end
+      it 'should return modifier of 0 if not baby_friendly' do
+        expect(subject.baby_friendly_modifier).to eq 0
+      end
+    end
+  end
 end
