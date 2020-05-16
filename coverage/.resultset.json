@@ -258,12 +258,42 @@
           null
         ]
       },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/factories/day_meals.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/factories/days.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/factories/meals.rb": {
         "lines": [
           1,
           1,
           26,
           26,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/factories/plans.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -336,6 +366,60 @@
           null
         ]
       },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/models/day_meal_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/app/models/day_meal.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/models/day_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/app/models/day.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
       "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/models/meal_spec.rb": {
         "lines": [
           1,
@@ -362,6 +446,28 @@
           1,
           1,
           null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/spec/models/plan_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/richardwise/Documents/RailsProjects/mealscheduler/app/models/plan.rb": {
+        "lines": [
+          1,
+          1,
           1,
           1,
           null
@@ -539,6 +645,6 @@
         ]
       }
     },
-    "timestamp": 1589593716
+    "timestamp": 1589595898
   }
 }
