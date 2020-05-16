@@ -4,11 +4,8 @@ FactoryBot.define do
     base { "MyString" }
     cook_time { 1 }
     servings { 1 }
-    baby_friendly { false }
     meal
     cuisine
-    factory :baby_friendly_recipe do
-      baby_friendly { true }
-    end
+    user
   end
 end
