@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :meal do
-    name { "MyString" }
+    name { Faker::Name.unique.name }
     status { 1 }
   end
 end

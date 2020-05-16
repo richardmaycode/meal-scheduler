@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :recipe do
-    name { "MyString" }
+    name { Faker::Name.unique.name }
     base { "MyString" }
     cook_time { 1 }
     servings { 1 }
