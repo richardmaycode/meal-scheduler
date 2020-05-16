@@ -11,9 +11,9 @@ class Recipe < ApplicationRecord
   # scopes
 
   # methods
-  def baby_friendly_modifier
-    return 50 unless !baby_friendly
-    
-    0 
-  end 
+  def leftovers(servings_needed)
+    return 0 if servings_needed > servings
+
+    servings - servings_needed
+  end
 end

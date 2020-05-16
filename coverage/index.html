@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-12T22:13:38-05:00">2020-05-12T22:13:38-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-05-15T19:16:47-05:00">2020-05-15T19:16:47-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>139</b> relevant lines,
-    <span class="green"><b>139</b> lines covered</span> and
+    <b>140</b> relevant lines,
+    <span class="green"><b>140</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -348,11 +348,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#f32ff959afdc03eab95595ae376db8a479f6fdd3" class="src_link" title="spec/models/recipe_spec.rb">spec/models/recipe_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">30</td>
-            <td class="cell--number">21</td>
-            <td class="cell--number">21</td>
+            <td class="cell--number">33</td>
+            <td class="cell--number">22</td>
+            <td class="cell--number">22</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.76</td>
+            <td class="cell--number">1.77</td>
             
           </tr>
         
@@ -871,7 +871,7 @@
 
             
 
-            <code class="ruby">  def baby_friendly_modifier</code>
+            <code class="ruby">  def leftovers(servings_needed)</code>
           </li>
         </div>
       
@@ -882,7 +882,7 @@
 
             
 
-            <code class="ruby">    return 50 unless !baby_friendly</code>
+            <code class="ruby">    return 0 if servings_needed &gt; servings</code>
           </li>
         </div>
       
@@ -893,7 +893,7 @@
 
             
 
-            <code class="ruby">    </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -904,7 +904,7 @@
 
             
 
-            <code class="ruby">    0 </code>
+            <code class="ruby">    servings - servings_needed</code>
           </li>
         </div>
       
@@ -915,7 +915,7 @@
 
             
 
-            <code class="ruby">  end </code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -3931,8 +3931,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="7">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="11" data-linenumber="7">
+            <span class="hits">11</span>
             
 
             
@@ -3975,8 +3975,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="11">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
             
 
             
@@ -4363,8 +4363,8 @@
     
 
     <div class="t-line-summary">
-      <b>21</b> relevant lines.
-      <span class="green"><b>21</b> lines covered</span> and
+      <b>22</b> relevant lines.
+      <span class="green"><b>22</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4409,8 +4409,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="4">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="11" data-linenumber="4">
+            <span class="hits">11</span>
             
 
             
@@ -4591,7 +4591,7 @@
 
             
 
-            <code class="ruby">    context &#39;#baby_friendly_modifier&#39; do</code>
+            <code class="ruby">    describe &#39;#leftovers&#39; do</code>
           </li>
         </div>
       
@@ -4602,7 +4602,7 @@
 
             
 
-            <code class="ruby">      it &#39;should return modifier of 50 if baby_friendly&#39; do</code>
+            <code class="ruby">      context &#39;when user servings needed exceeds servings&#39; do</code>
           </li>
         </div>
       
@@ -4613,7 +4613,7 @@
 
             
 
-            <code class="ruby">        recipe = create(:baby_friendly_recipe)</code>
+            <code class="ruby">        it &#39;returns 0&#39; do</code>
           </li>
         </div>
       
@@ -4624,7 +4624,7 @@
 
             
 
-            <code class="ruby">        expect(recipe.baby_friendly_modifier).to eq 50</code>
+            <code class="ruby">          expect(subject.leftovers(10)).to eq 0</code>
           </li>
         </div>
       
@@ -4635,18 +4635,18 @@
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="25">
+            
             
 
             
 
-            <code class="ruby">      it &#39;should return modifier of 0 if not baby_friendly&#39; do</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -4657,29 +4657,29 @@
 
             
 
-            <code class="ruby">        expect(subject.baby_friendly_modifier).to eq 0</code>
+            <code class="ruby">      context &#39;when user servings needed is less than or equal to servings&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="27">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">        it &#39;returns difference of servings and servings needed&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="28">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">          expect(subject.leftovers(1)).to eq 0</code>
           </li>
         </div>
       
@@ -4690,12 +4690,45 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="30">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="31">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="32">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
