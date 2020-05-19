@@ -3,8 +3,8 @@
 class User < ApplicationRecord
   # associations
   has_many :user_recipes, dependent: :destroy
-  has_many :favorite_user_recipes, -> { where(is_favorite: true) }, class_name: "UserRecipe", inverse_of: :user_recipes
-  has_many :kid_friendly_user_recipes, -> { where(is_kid_friendly: true) }, class_name: "UserRecipe", inverse_of: :user_recipes
+  has_many :favorite_user_recipes, -> { where(is_favorite: true) }, class_name: "UserRecipe"
+  has_many :kid_friendly_user_recipes, -> { where(is_kid_friendly: true) }, class_name: "UserRecipe"
   has_many :recipes, through: :user_recipes
   has_many :favorite_recipes, through: :favorite_user_recipes, source: :recipe
   has_many :kid_friendly_recipes, through: :kid_friendly_user_recipes, source: :recipe
