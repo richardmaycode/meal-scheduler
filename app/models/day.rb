@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Day < ApplicationRecord
   # associations
   belongs_to :user

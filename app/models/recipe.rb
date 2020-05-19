@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Recipe < ApplicationRecord
   # associations
   belongs_to :meal
@@ -20,11 +22,11 @@ class Recipe < ApplicationRecord
   end
 
   def favorite(user)
-    user.favorite_recipes.exists?(self.id)
+    user.favorite_recipes.exists?(id)
   end
 
   def kid_friendly(user)
-    user.kid_friendly_recipes.exists?(self.id)
+    user.kid_friendly_recipes.exists?(id)
   end
 
   def favorite_mod(favorite)

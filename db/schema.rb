@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_021352) do
     t.integer "default_servings", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "day_meals", "days"

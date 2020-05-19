@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Plan, type: :model do
   describe 'associations' do
-    it { should belong_to(:recipe) }
-    it { should belong_to(:day) }
-    it { should belong_to(:user) }
+    it { is_expected.to belong_to(:recipe) }
+    it { is_expected.to belong_to(:day) }
+    it { is_expected.to belong_to(:user) }
   end
 end
