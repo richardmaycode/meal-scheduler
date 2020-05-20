@@ -2,3 +2,25 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import '@fortawesome/fontawesome-pro';
+
+.page-title-bar {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto
+}
+
+.page-title-bar {
+  margin-bottom: 1.5rem;
+  padding: 0 1rem
+}
+
+@media (min-width: 576px) {
+  .page-title-bar {
+      padding-right:0;
+      padding-left: 0
+  }
+}
+
+.page-title-bar .btn-toolbar {
+  margin-left: -.75rem
+}

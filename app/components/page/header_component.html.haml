@@ -1,0 +1,7 @@
+%header.page-title-bar.mb-0
+  = render(back_link) if back_link
+  .d-flex.flex-column.flex-md-row
+    .lead.mb-3
+      %h1.text-2xl.font-weight-bold.mb-1
+        = title
+      = tag.span subtitle, class: "d-block text-muted" if subtitle
