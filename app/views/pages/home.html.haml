@@ -1,6 +1,6 @@
 = render(PageComponent.new) do |component|
   = component.with(:header) do
-    = render(Page::HeaderComponent.new(title: 'Test', subtitle: "This is the subtitle", back_link: BackLinkComponent.new(link: "test", title: "test")))
+    = render(Page::HeaderComponent.new(title: 'Recipes', subtitle: "List of all available recipes", back_link: BackLinkComponent.new(link: "test", title: "test")))
   = component.with(:body) do
     = render(RecipesComponent.new(recipes: @recipes))
 
