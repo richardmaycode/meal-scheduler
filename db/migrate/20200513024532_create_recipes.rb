@@ -4,7 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       # values
       t.string :name, null: false
       t.string :base, null: false
-      t.integer :cook_time, null: false
+      t.string :cook_time, default: "short"
       t.integer :servings, null: false
       
       # relationships

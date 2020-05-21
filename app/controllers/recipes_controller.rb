@@ -7,7 +7,9 @@ class RecipesController < ApplicationController
 
   def show; end
 
-  def new; end
+  def new 
+    @recipe = Recipe.new
+  end
 
   def create
     @recipe = Recipe.create(recipe_params)

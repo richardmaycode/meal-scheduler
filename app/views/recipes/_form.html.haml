@@ -1,0 +1,4 @@
+= form_with model: @recipe do |f|
+  = f.select :meal, recipes_meals_for_select, {}
+  = f.select :cuisine, recipes_cuisines_for_select, {}
+  = f.select :cook_time, recipes_cook_times_for_select, {}
