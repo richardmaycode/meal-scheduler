@@ -6,5 +6,5 @@ class RecipesComponent < ViewComponent::Base
 
   private
 
-  attr_reader :recipes
+  attr_reader :recipes, :user
 end

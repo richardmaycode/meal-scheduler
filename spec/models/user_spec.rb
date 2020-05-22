@@ -23,6 +23,9 @@ RSpec.describe User, type: :model do
   subject(:user) { create(:user) }
 
   describe 'associations' do
+    it { is_expected.to have_many(:weeks) }
+    it { is_expected.to have_many(:days) }
+    it { is_expected.to have_many(:plans) }
     it { is_expected.to have_many(:user_recipes) }
     it { is_expected.to have_many(:favorite_user_recipes).conditions(is_favorite: true) }
     it { is_expected.to have_many(:kid_friendly_user_recipes).conditions(is_kid_friendly: true) }

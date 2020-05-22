@@ -1,0 +1,5 @@
+.flex.mx-auto.flex-col{ class: "w-1/2"}
+  - if weeks.any?
+    = render(Weeks::WeekComponent.with_collection(weeks))
+  - else
+    %p There are no weeks planned yet

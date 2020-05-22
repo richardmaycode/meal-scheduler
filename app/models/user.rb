@@ -19,6 +19,9 @@
 
 class User < ApplicationRecord
   # associations
+  has_many :weeks
+  has_many :days
+  has_many :plans
   has_many :user_recipes, dependent: :destroy
   has_many :favorite_user_recipes, -> { where(is_favorite: true) }, class_name: "UserRecipe"
   has_many :kid_friendly_user_recipes, -> { where(is_kid_friendly: true) }, class_name: "UserRecipe"

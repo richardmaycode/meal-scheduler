@@ -1,0 +1,5 @@
+= render(PageComponent.new) do |component|
+  = component.with(:header) do
+    = render(Page::HeaderComponent.new(title: 'Weeks', buttons: [link_to("Plan Week", [:new, :week], class: 'btn btn-blue')]))
+  = component.with(:body) do
+    = render(WeeksComponent.new(weeks: @weeks, user: @user))
