@@ -4,25 +4,13 @@
 @import '@fortawesome/fontawesome-pro';
 
 .page-title-bar {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto
-}
-
-.page-title-bar {
-  margin-bottom: 1.5rem;
-  padding: 0 1rem
+  @apply px-1 mb-2 mx-auto w-full;
 }
 
 @media (min-width: 576px) {
   .page-title-bar {
-      padding-right:0;
-      padding-left: 0
+    @apply px-0
   }
-}
-
-.page-title-bar .btn-toolbar {
-  margin-left: -.75rem
 }
 
 .btn {
@@ -38,7 +26,6 @@
 .form-alert {
   @apply bg-red-100 border-l-4 border-red-500 text-red-700 p-4;
 }
-
 
 .form-element {
   @apply my-2

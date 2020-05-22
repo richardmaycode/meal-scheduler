@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %w[show edit update delete]
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.includes([:cuisine, :meal]).all
   end
 
   def show; end

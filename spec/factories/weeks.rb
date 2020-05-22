@@ -1,32 +1,25 @@
-# frozen_string_literal: true
-
 # == Schema Information
 #
-# Table name: days
+# Table name: weeks
 #
 #  id         :bigint           not null, primary key
-#  scheduled  :date
+#  start      :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
-#  week_id    :bigint           not null
 #
 # Indexes
 #
-#  index_days_on_user_id  (user_id)
-#  index_days_on_week_id  (week_id)
+#  index_weeks_on_user_id  (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (user_id => users.id)
-#  fk_rails_...  (week_id => weeks.id)
 #
 
-
 FactoryBot.define do
-  factory :day do
-    scheduled { '2020-05-15' }
+  factory :week do
+    start { "2020-05-22" }
     user
-    week
   end
 end

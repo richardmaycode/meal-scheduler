@@ -1,2 +1,5 @@
-%h1 Recipes#index
-%p Find me in app/views/recipes/index.html.haml
+= render(PageComponent.new) do |component|
+  = component.with(:header) do
+    = render(Page::HeaderComponent.new(title: 'Recipes', buttons: [link_to('Create Recipe', [:new, :recipe], class: 'btn btn-blue')]))
+  = component.with(:body) do
+    = render(RecipesComponent.new(recipes: @recipes))

@@ -1,6 +1,5 @@
-.flex.mx-auto{ class: "w-1/2"}
-  %ul
-    - if recipes.any?
-      = render(Recipes::RecipeComponent.with_collection(recipes))
-    - else
-      %p There are no recipes to display
+.flex.mx-auto.flex-col{ class: "w-1/2"}
+  - if recipes.any?
+    = render(Recipes::RecipeComponent.with_collection(recipes))
+  - else
+    %p There are no recipes to display

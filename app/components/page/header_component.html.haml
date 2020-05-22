@@ -1,7 +1,11 @@
-%header.page-title-bar.mb-0
+%header.page-title-bar.mb-0.mt-4
   = render(back_link) if back_link
-  .d-flex.flex-column.flex-md-row
-    .lead.mb-2.mx-4
+  .flex.justify-between
+    .mb-2.mx-4
       %h1.text-3xl.font-weight-bold
         = title
       = tag.span subtitle, class: "text-gray-600" if subtitle
+    .mb-2.mx-4
+      - if buttons.any?
+        - buttons.each do |link|
+          = link.html_safe

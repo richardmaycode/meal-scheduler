@@ -1,2 +1,12 @@
-%li
-  = recipe.name
+.bg-white.rounded-md.p-4.mt-4
+  .flex.justify-between.px-2
+    %p.text-lg #{recipe.name}
+    %flex.justify-around
+      %i.far.fa-star.fa-lg
+      %i.far.fa-check-circle.fa-lg
+  .px-6.py-4
+    .inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700 #{recipe.base}
+    .inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700 #{recipe.cuisine.name}
+    .inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700 #{recipe.meal.name}
+    .inline-block.bg-gray-200.rounded-full.px-3.py-1.text-sm.font-semibold.text-gray-700 Feeds #{recipe.servings}
+

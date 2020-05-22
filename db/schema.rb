@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 2020_05_16_021352) do
   create_table "days", force: :cascade do |t|
     t.date "scheduled"
     t.bigint "user_id", null: false
+    t.bigint "week_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_days_on_user_id"
+    t.index ["week_id"], name: "index_days_on_week_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -92,9 +94,18 @@ ActiveRecord::Schema.define(version: 2020_05_16_021352) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "weeks", force: :cascade do |t|
+    t.date "start"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_weeks_on_user_id"
+  end
+
   add_foreign_key "day_meals", "days"
   add_foreign_key "day_meals", "meals"
   add_foreign_key "days", "users"
+  add_foreign_key "days", "weeks"
   add_foreign_key "plans", "days"
   add_foreign_key "plans", "recipes"
   add_foreign_key "plans", "users"
@@ -103,4 +114,5 @@ ActiveRecord::Schema.define(version: 2020_05_16_021352) do
   add_foreign_key "recipes", "users"
   add_foreign_key "user_recipes", "recipes"
   add_foreign_key "user_recipes", "users"
+  add_foreign_key "weeks", "users"
 end
