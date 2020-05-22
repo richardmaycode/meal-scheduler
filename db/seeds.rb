@@ -16,3 +16,4 @@ cuisines.each do |c|
   Cuisine.create(name: c, status: 0)
 end
 
+User.create(username: 'testing', name: 'Richard Wise', default_servings: 2)

@@ -1,4 +1,43 @@
-= form_with model: @recipe do |f|
-  = f.select :meal, recipes_meals_for_select, {}
-  = f.select :cuisine, recipes_cuisines_for_select, {}
-  = f.select :cook_time, recipes_cook_times_for_select, {}
+= form_with model: @recipe, local: true, class: 'w-full' do |f|
+  = f.hidden_field :user_id, value: 1
+  = render Form::ErrorMessageComponent.new(object: @recipe)
+  .bg-gray-200.shadow-md.rounded.px-8.pt-6.pb-8.mb-4
+    .form-element
+      = f.label :name, 'Recipe Name', class: 'form-label'
+      = f.text_field :name, class: 'form-input', placeholder: 'Name your recipe'
+    .form-element
+      = f.label :meal_id, "Meal", class: 'form-label'
+      .relative
+        = f.select :meal_id, recipes_meals_for_select, {}, class: 'shadow-md block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' 
+        %div{ class: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700'}
+          .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
+    .form-element  
+      = f.label :cuisine_id, "cuisine", class: 'form-label'
+      .relative
+        = f.select :cuisine_id, recipes_cuisines_for_select, {},  class: 'shadow-md block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' 
+        %div{ class: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700'}
+          .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
+    .form-element  
+      = f.label :base, "Base", class: 'form-label'
+      = f.text_field :base, class: 'form-input'
+    .form-element  
+      = f.label :cook_time, "Cook Time", class: 'form-label'
+      .relative
+        = f.select :cook_time, recipes_cook_times_for_select, {}, class: 'shadow-md block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' 
+        %div{ class: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700'}
+          .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
+    .form-element  
+      = f.label :servings, "Servings", class: 'form-label'
+      = f.number_field :servings, class: 'form-input'
+
+    .flex.items-center.space-x-20
+      .form-element
+        = label_tag :is_kid_friendly, class: 'label' do
+          = check_box_tag :is_kid_friendly
+          .ml-2.w-full.inline.form-checkbox-label Kid Friendly
+      .form-element
+        = label_tag :is_fav, class: 'label' do
+          = check_box_tag :is_fav
+          .ml-2.w-full.inline.form-checkbox-label Favorite
+    .form-element  
+      = f.submit(@recipe.new_record? ? 'Create' : 'Update', class: 'btn btn-blue')
