@@ -1,2 +1,5 @@
-%h1 Weeks#new
-%p Find me in app/views/weeks/new.html.haml
+= render(PageComponent.new) do |component|
+  = component.with(:header) do
+    = render(Page::HeaderComponent.new(title: 'Plan Week'))
+  = component.with(:body) do
+    = render 'form'

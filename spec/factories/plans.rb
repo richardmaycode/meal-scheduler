@@ -27,7 +27,8 @@
 
 FactoryBot.define do
   factory :plan do
-    recipe { nil }
-    user { nil }
+    recipe
+    user
+    day
   end
 end

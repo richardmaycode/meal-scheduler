@@ -1,0 +1,27 @@
+= form_with model: @week, local: true do |f|
+  = f.hidden_field :user_id, value: @user.id
+  .form-element
+    = f.label :start, "What week should we plan?", class: 'form-label'
+    = f.date_field :start, class: 'form-input'
+  - @days.each_with_index do |d, i|
+    %h2 #{d}
+    .flex.items-center
+      .form-element
+        = label_tag :day, :meals, class: 'label' do
+          = check_box_tag "week[days][#{i}][meals][]", 1
+          .ml-2.w-full.inline.form-checkbox-label Breakfast
+      .form-element
+        = label_tag :day, :meals, class: 'label' do
+          = check_box_tag "week[days][#{i}][meals][]", 2
+          .ml-2.w-full.inline.form-checkbox-label Lunch
+      .form-element
+        = label_tag :day, :meals, class: 'label' do
+          = check_box_tag "week[days][#{i}][meals][]", 3
+          .ml-2.w-full.inline.form-checkbox-label Dinner
+      .form-element
+        = label_tag :day, :meals, class: 'label' do
+          = check_box_tag "week[days][#{i}][meals][]", 4
+          .ml-2.w-full.inline.form-checkbox-label Other                    
+  = f.submit
+
+    

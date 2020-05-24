@@ -32,6 +32,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:recipes).through(:user_recipes) }
     it { is_expected.to have_many(:favorite_recipes).through(:favorite_user_recipes) }
     it { is_expected.to have_many(:kid_friendly_recipes).through(:kid_friendly_user_recipes) }
+    it { is_expected.to have_many(:used_recipes).through(:plans) }
   end
 
   describe 'validations' do

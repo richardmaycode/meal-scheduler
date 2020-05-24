@@ -23,6 +23,8 @@ class Week < ApplicationRecord
   has_many :days
   has_many :plans, through: :days
 
+  accepts_nested_attributes_for :days
+
   # validations
   validates :start, presence: true
 end
