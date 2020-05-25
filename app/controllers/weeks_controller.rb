@@ -55,6 +55,6 @@ class WeeksController < ApplicationController
   end
 
   def set_week
-    @week = Week.find(params[:id])
+    @week = Week.includes(days: [:meals]).find(params[:id])
   end  
 end
