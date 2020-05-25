@@ -75,4 +75,17 @@ class Recipe < ApplicationRecord
 
     500
   end
+
+  def leftover_mod(previous_recipe)
+  end
+
+  # TODO need to implement meal length mod
+  def sort_score(user)
+    kfm = kid_friendly_mod(kid_friendly(user))
+    fm = favorite_mod(favorite(user))
+    bm = base_mod(user.previous_meals.last.meal.name)
+    lm = leftover_mod(user.previous_recipes.last)
+
+    score = kfm + fm + bm
+  end
 end

@@ -17,3 +17,5 @@ cuisines.each do |c|
 end
 
 User.create(username: 'testing', name: 'Richard Wise', default_servings: 2)
+
+Recipe.create(name: "", meal_id: , cuisine_id: , base: "", cooking_time: , servings: , user_id: 1)
