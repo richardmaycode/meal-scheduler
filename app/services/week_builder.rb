@@ -1,38 +1,36 @@
-def WeekBuilder < ApplicationService
-  def initialize(user, days)
-    @user = user
+class WeekBuilder < ApplicationService
+  def initialize(week, days, user)
+    @week = week
     @days = days
+    @user = user
   end
 
   def call
-    scoreable_recipes = user.recipes
-    @days.each do |d|
-      puts d.scheduled.strftime("%A - %m-%d-%Y")
-      d.meals do |m|
-        puts m.name
-        scoreable_recipes = user.recipes.where(meal: m)
-        recipe = score_recipes(scorable_recipes)
-        puts recipe.name
-        # create_plan(d, recipe)
+    create_days
+    used_recipes = []
+    @week.days.each do |day|
+      day.meals.each do |meal|
+        recipes = @user.recipes.where(meal: meal).where.not(id: used_recipes)
+        PlanBuilder.call(@user, day, meal, recipes)
+        used_recipes << day.plans.last.recipe.id
       end
     end
-    score_recipes
-  
   end
 
-  def score_recipes(scorable_recipes)
-    scores = []
-    scoreable_recipes.each do |sr|
-      hash = {}
-      hash[:id] = sr.id
-      hash[:score] = r.sort_score(@user)
-      scores << hash
+  def create_days
+    @days.each do |k, v|
+      v.each do |_k2, v2|
+        mod = k.to_i
+        day = if mod.zero?
+                @week.days.create(scheduled: @week.start, user_id: @user.id)
+              else
+                @week.days.create(scheduled: @week.start + mod.day, user_id: @user.id)
+              end
+        day.save
+        v2.each do |m|
+          DayMeal.create(meal_id: m, day_id: day.id)
+        end
+      end
     end
-    scores.sort_by! { |hsh| -hsh[:score] }
-    recipe_id = scores[0][:id]
-  end
-
-  def create_plan(day, recipe)
-    Plan.create!(recipe_id: recipe, day_id: day.id, @user.id)
   end
 end

@@ -1,9 +1,262 @@
-%h1 Weeks#show
-%p Find me in app/views/weeks/show.html.haml
+-# .container.mx-auto.text-center
+-#   .h1.text-3xl.my-8 
 
-- @week.days.each do |d|
-  = d.scheduled
-  %br
-  - d.meals.each do |m|
-    = m.name
-    %br
+= render PageComponent.new do |component|
+  = component.with(:header) do
+    = render Page::HeaderComponent.new(title: "Week of #{@week.start.strftime("%m/%d/%Y")}")
+  = component.with(:body) do
+    = render DaysComponent.new(days: @week.days, user: @user)
+-# .container.mx-auto
+-#   .flex.flex-wrap
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Monday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-sandwich.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-taco.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Shepard's Pie
+-#             .text-gray-500 Beef
+-#       -# .bg-white.p-4.m-2.rounded-lg
+-#       -#   .flex
+-#       -#     .bg-gray-200.p-4.rounded-lg
+-#       -#       %i.fal.fa-taco.fa-2x
+-#       -#     .self-center.pl-4
+-#       -#       .text-md Nothing Planned
+-#       -#       .text-gray-500 TBD
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Tuesday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-sandwich.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-taco.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Shepard's Pie
+-#             .text-gray-500 Beef
+-#       -# .bg-white.p-4.m-2.rounded-lg
+-#       -#   .flex
+-#       -#     .bg-gray-200.p-4.rounded-lg
+-#       -#       %i.fal.fa-taco.fa-2x
+-#       -#     .self-center.pl-4
+-#       -#       .text-md Nothing Planned
+-#       -#       .text-gray-500 TBD
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Wednesday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-soup.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       -# .bg-white.p-4.m-2.rounded-lg
+-#       -#   .flex
+-#       -#     .bg-gray-200.p-4.rounded-lg
+-#       -#       %i.fal.fa-taco.fa-2x
+-#       -#     .self-center.pl-4
+-#       -#       .text-md Shepard's Pie
+-#       -#       .text-gray-500 Beef
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-turkey.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Nothing Planned
+-#             .text-gray-500 TBD
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Thursday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-sandwich.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-taco.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Shepard's Pie
+-#             .text-gray-500 Beef
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Friday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-soup.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-turkey.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Nothing Planned
+-#             .text-gray-500 TBD
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Saturday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-sandwich.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-taco.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Shepard's Pie
+-#             .text-gray-500 Beef
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+-#     .flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+-#       .mb-2
+-#         %h2.text-2xl Sunday
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-egg-fried.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Biscuits and Gravy
+-#             .text-gray-500 Sausage
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-sandwich.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Mac and Cheese
+-#             .text-gray-500 Meatless
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-taco.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Shepard's Pie
+-#             .text-gray-500 Beef
+-#       .bg-white.p-4.m-2.rounded-lg
+-#         .flex
+-#           .bg-gray-200.p-4.rounded-lg
+-#             %i.fal.fa-ice-cream.fa-2x
+-#           .self-center.pl-4
+-#             .text-md Brownies
+-#             .text-gray-500 Dessert
+
+
+
+-# .flex.flex-col.mx-auto{ class: 'w-1/2' }
+-#   - @week.days.each do |d|
+-#     .flex
+-#       = d.scheduled.strftime("%a")
+-#       %br
+-#       - d.meals.each do |m|
+-#         = m.name
+-#         %br
+-#       - d.plans.each do |p|
+-#         = p.recipe.name
+-#         %br

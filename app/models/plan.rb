@@ -33,4 +33,8 @@ class Plan < ApplicationRecord
   def scheduled
     day.scheduled
   end
+
+  def meal
+    recipe.meal.name
+  end
 end

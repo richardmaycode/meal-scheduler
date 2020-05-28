@@ -1,0 +1,4 @@
+.flex.flex-col.mx-auto.mt-2{ class: 'w-1/4' }
+  .mb-2
+    %h2.text-2xl #{ day.scheduled.strftime("%A") }
+    = render(Plans::PlanComponent.with_collection(day.plans))
