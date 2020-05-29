@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe WeeksHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:week) { create(:week) }
+  describe '#week_start_display' do
+    it 'returns mm/dd/yyyy format for week.start' do
+      expect(week_start_display(week)).to eq week.start.strftime("%m-%d-%Y")
+    end
+  end
 end

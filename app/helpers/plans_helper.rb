@@ -1,6 +1,6 @@
 module PlansHelper
-  def icon(plan)
-    case plan.meal
+  def icon(meal)
+    case meal
     when 'Breakfast'
       "fa-egg-fried"
     when 'Lunch'

@@ -5,7 +5,7 @@ class Plans::PlanComponent < ViewComponent::Base
   end
 
   def icon_class
-    icon(plan)
+    icon(plan.meal)
   end
 
   private

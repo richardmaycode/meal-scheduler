@@ -11,5 +11,13 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PlansHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe '#icon' do
+    it 'returns icon matching the plans meal' do
+      expect(icon('Breakfast')).to eq "fa-egg-fried"
+    end
+    it 'returns other icon when option is invalid' do
+      expect(icon('test')).to eq "fa-brownie"
+    end
+  end
 end

@@ -11,5 +11,20 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe RecipesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#recipes_cook_times_for_select' do
+    it 'returns a hash of cook times' do
+      expect(recipes_cook_times_for_select).to eq ENUMS::RECIPE_COOK_TIMES.values.map { |val| [val.humanize, val] }
+    end
+  end
+  describe '#recipes_meals_for_select' do
+    it 'returns a hash of meals'do
+      expect(recipes_meals_for_select).to eq Meal.all.map { |m| [m.name, m.id] }
+    end
+  end
+  describe '#recipes_cuisines_for_select' do
+    it 'should return a hash of cuisines' do
+      expect(recipes_cuisines_for_select).to eq Cuisine.all.map { |c| [c.name, c.id] }
+    end
+  end
 end
+

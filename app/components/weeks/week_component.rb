@@ -7,7 +7,7 @@ class Weeks::WeekComponent < ViewComponent::Base
   private 
 
   def url_text
-    test week
+    week_start_display week
   end
 
   attr_reader :week
