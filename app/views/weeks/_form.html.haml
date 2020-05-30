@@ -1,27 +1,26 @@
-= form_with model: @week, local: true do |f|
+= form_with model: @week, local: true, class: 'w-full' do |f|
   = f.hidden_field :user_id, value: @user.id
-  .form-element
-    = f.label :start, "What week should we plan?", class: 'form-label'
-    = f.date_field :start, class: 'form-input'
-  - @days.each_with_index do |d, i|
-    %h2 #{d}
-    .flex.items-center
-      .form-element
-        = label_tag :day, :meals, class: 'label' do
-          = check_box_tag "week[days][#{i}][meals][]", 1
-          .ml-2.w-full.inline.form-checkbox-label Breakfast
-      .form-element
-        = label_tag :day, :meals, class: 'label' do
-          = check_box_tag "week[days][#{i}][meals][]", 2
-          .ml-2.w-full.inline.form-checkbox-label Lunch
-      .form-element
-        = label_tag :day, :meals, class: 'label' do
-          = check_box_tag "week[days][#{i}][meals][]", 3
-          .ml-2.w-full.inline.form-checkbox-label Dinner
-      .form-element
-        = label_tag :day, :meals, class: 'label' do
-          = check_box_tag "week[days][#{i}][meals][]", 4
-          .ml-2.w-full.inline.form-checkbox-label Other                    
-  = f.submit
+  = render Form::ErrorMessageComponent.new(object: @week)
+  .bg-gray-200.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.mx-auto{class: 'w-1/2'}
+    .form-element
+      = f.label :start, "What week should we plan?", class: 'form-label'
+      = f.date_field :start, class: 'form-input'
+      = f.fields_for :days do |ff|
+        = ff.hidden_field :user_id, value: @user.id
+        = ff.hidden_field :scheduled, value: Date.today
+        .form-element
+          = ff.label :day_label, @day_labels[ff.index], class: 'form-label'
+        .form-element
+          = ff.label :plans_needed, class: 'label'
+          .relative
+            = ff.select :plans_needed, options_for_select([['Only Dinner', 1], ['Breakfast and Dinner', 2], ['All Meals', 3], ['All Meals and a Dessert', 4]]), {}, class: 'form-select' 
+            .form-select-icon
+              .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
+        .form-element
+          = ff.label :allow_long_cook_times do 
+            = ff.check_box :allow_long_cook_times
+            .ml-2.w-full.inline Allow Long Cook Times
+    .form-element
+      = f.submit("Plan Week", class: 'btn btn-blue mt-4')
 
     

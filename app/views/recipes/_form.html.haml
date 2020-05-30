@@ -8,14 +8,14 @@
     .form-element
       = f.label :meal_id, "Meal", class: 'form-label'
       .relative
-        = f.select :meal_id, recipes_meals_for_select, {}, class: 'shadow-md block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' 
-        %div{ class: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700'}
+        = f.select :meal_id, recipes_meals_for_select, {}, class: 'form-select' 
+        .form-select-icon
           .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
     .form-element  
       = f.label :cuisine_id, "cuisine", class: 'form-label'
       .relative
-        = f.select :cuisine_id, recipes_cuisines_for_select, {},  class: 'shadow-md block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' 
-        %div{ class: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700'}
+        = f.select :cuisine_id, recipes_cuisines_for_select, {},  class: 'form-select' 
+        .form-select-icon
           .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
     .form-element  
       = f.label :base, "Base", class: 'form-label'
@@ -23,8 +23,8 @@
     .form-element  
       = f.label :cook_time, "Cook Time", class: 'form-label'
       .relative
-        = f.select :cook_time, recipes_cook_times_for_select, {}, class: 'shadow-md block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' 
-        %div{ class: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700'}
+        = f.select :cook_time, recipes_cook_times_for_select, {}, class: 'form-select' 
+        .form-select-icon
           .fal.fa-angle-down.fa-2x.fill-current.h-4.w-4
     .form-element  
       = f.label :servings, "Servings", class: 'form-label'

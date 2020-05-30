@@ -9,12 +9,13 @@ class WeeksController < ApplicationController
 
   def new
     @week = Week.new
-    @days = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
+    @days =  7.times { @week.days.build }
+    @day_labels = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
   end
 
   def create
     @week = Week.new(week_params)
-    @days = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
+    @day_labels = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
     if @week.save
       WeekBuilder.call(@week, params[:week][:days], @user)
       redirect_to @week
@@ -31,7 +32,7 @@ class WeeksController < ApplicationController
   private
 
   def week_params
-    params.require(:week).permit(:start, :user_id, :days)
+    params.require(:week).permit(:start, :user_id, days_attributes: [:scheduled, :plans_needed, :allow_long_cook_times, :user_id])
   end
 
   def set_user
@@ -39,6 +40,6 @@ class WeeksController < ApplicationController
   end
 
   def set_week
-    @week = Week.includes(days: [:meals, :plans]).find(params[:id])
+    @week = Week.includes(days: [:plans]).find(params[:id])
   end  
 end
