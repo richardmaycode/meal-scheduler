@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_user
   before_action :set_recipe, only: %w[show edit update delete]
   
   def index
@@ -44,6 +45,11 @@ class RecipesController < ApplicationController
       params.require(:recipe).permit(:name, :meal_id, :cuisine_id, :cook_time, :servings, :base, :user_id, :is_kid_friendly, :is_fav)
     end
 
+    def set_user
+      # TODO assign to current User
+      @user = User.first
+    end
+    
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end

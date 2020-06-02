@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'plans/new'
+  get 'plans/create'
+  get 'plans/edit'
+  get 'plans/update'
+  get 'plans/destroy'
   resources :recipes
   resources :weeks
   get 'pages/home'

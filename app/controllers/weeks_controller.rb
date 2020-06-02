@@ -1,6 +1,7 @@
 class WeeksController < ApplicationController
   before_action :set_user
   before_action :set_week, only: %i[show destroy]
+  
   def index
     @weeks = @user.weeks.all
   end
@@ -36,6 +37,7 @@ class WeeksController < ApplicationController
   end
 
   def set_user
+    # TODO assign to current User
     @user = User.first
   end
 
